@@ -9,10 +9,10 @@ function boxMuller(u,v)
     (r * cos(θ), r * sin(θ))
 end
 
-function boxMuller(u,v,args...)
-    (boxMuller(u,v)..., boxMuller(args...)...)
-end
-
-
-normals(u,args...) = boxMuller(u,args...)
+normals(x::Vector) = normals(x...)
+normals(u,v,args...) = (boxMuller(u,v)..., normals(args...)...)
 normals(u) = norminvcdf(u)
+
+export StdNormals
+
+StdNormals(N) = Quasi(N,normals)
