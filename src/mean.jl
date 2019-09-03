@@ -11,6 +11,8 @@ using Transducers: R_, start, next, complete, inner, xform, wrap, unwrap, wrappi
 
 using Measurements
 
+export Mean
+
 struct Mean <: Transducer
 end
 
@@ -44,5 +46,3 @@ function Transducers.complete(rf::R_{Mean}, result)
     return complete(inner(rf), inner_result)
 end
 
-collect(Mean(),randn(100)) |> plot
-@time foldl(right, Mean(), 1:10)
