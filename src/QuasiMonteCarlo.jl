@@ -1,6 +1,7 @@
 module QuasiMonteCarlo
 
-using Transducers
+using Reexport
+@reexport using Transducers
 using Sobol
 using StatsFuns
 
