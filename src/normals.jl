@@ -8,6 +8,7 @@ end
 
 normals() = ()
 normals(x::Vector) = normals(x...)
+normals(x::Tuple) = normals(x...)
 normals(u,v,args...) = (boxMuller(u,v)..., normals(args...)...)
 normals(u) = norminvcdf(u)
 
