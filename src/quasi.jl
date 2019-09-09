@@ -1,8 +1,8 @@
 export Quasi
 
-struct Quasi{N, F}
+struct Quasi{N, F, A <: AbstractVector{<:AbstractFloat}}
     s :: SobolSeq{N}
-    x :: AbstractVector{<:AbstractFloat}
+    x :: A
     f :: F
 end
 
